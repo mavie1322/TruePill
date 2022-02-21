@@ -5,14 +5,29 @@ const inquirer = readline.createInterface({
   output: process.stdout,
 });
 
-inquirer.question("What is your name?", (name) => {
-  inquirer.question("What is your age?", (age) => {
-    console.log(`My name is ${name} and am ${age} years old.`);
-    inquirer.close();
-  });
-});
-
 inquirer.on("close", function () {
-  console.table("Goodbye");
+  console.table(medicationList);
   process.exit(0);
 });
+
+const medicationList = {};
+
+function addMedications() {
+  inquirer.question(
+    "What medication would you like to add to your formulary?",
+    (name) => {
+      if (name) medicationList[name.toLowerCase()] = [];
+      inquirer.question(
+        "Do you wish to add more medication?(y/n)",
+        (answer) => {
+          if (answer.toLowerCase() === "n" || answer.toLowerCase() === "no") {
+            return inquirer.close();
+          }
+          addMedications();
+        }
+      );
+    }
+  );
+}
+
+addMedications();
