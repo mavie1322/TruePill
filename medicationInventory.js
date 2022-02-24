@@ -1,14 +1,14 @@
 const readline = require("readline");
 
 const medicationsList = {
-  amoxicilin: {},
-  codeine: {},
-  diclofenac: {},
-  ibuprofen: {},
-  paracetamol: {},
-  simvastatin: {},
-  tramadol: {},
-  warfarin: {},
+  Amoxicilin: {},
+  Codeine: {},
+  Diclofenac: {},
+  Ibuprofen: {},
+  Paracetamol: {},
+  Simvastatin: {},
+  Tramadol: {},
+  Warfarin: {},
 };
 
 const inquirer = readline.createInterface({
@@ -22,7 +22,7 @@ const recursionFunction = (array) => {
   }
   array.forEach((name) => {
     inquirer.question(
-      `Would you like to enter the stock for ${name.toUpperCase()}?(y/n)    `,
+      `Would you like to enter the stock for ${name.toUpperCase()}?(yes/no)    `,
       (response) => {
         if (
           response.toLowerCase() === "y" ||
