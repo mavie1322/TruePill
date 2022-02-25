@@ -24,3 +24,5 @@ $ node medicationInventory.js
 ```
 
 Hope you will enjoy the application!!!
+
+#### Teclaire Bahel
